@@ -1,0 +1,10 @@
+{
+  "name": "brightpaw-site",
+  "private": true,
+  "description": "Brightpaw's website: static pages, the booking form and their tests.",
+  "type": "module",
+  "scripts": {
+    "test": "node --test"
+  },
+  "license": "MIT"
+}
