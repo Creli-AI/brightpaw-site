@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Book a walk | Brightpaw</title>
+<meta name="description" content="Book a free meet and greet and weekly dog walks in Austin.">
+<link rel="stylesheet" href="site.css">
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="index.html"><img src="brand/logo.svg" alt="Brightpaw" height="34" style="height:34px;width:auto"></a>
+    <nav class="nav" aria-label="Main">
+      <a href="pricing.html">Walks and prices</a>
+      <a href="about.html">About us</a>
+      <a class="btn btn-leash" href="book.html">Book a walk</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="page-head"><div class="wrap">
+  <h1>Book a walk</h1>
+  <p class="lede">Tell us about your dog and when you want walks. We confirm within two hours on weekdays.</p>
+</div></section>
+<section class="band" style="padding-top:0"><div class="wrap book">
+  <form class="form" action="#" onsubmit="return false">
+    <div class="field-row">
+      <div class="field"><label for="dog">Your dog's name</label><input id="dog" value="Biscuit"></div>
+      <div class="field"><label for="size">Size</label><select id="size"><option>Small, under 20 lb</option><option selected>Medium, 20 to 50 lb</option><option>Large, over 50 lb</option></select></div>
+    </div>
+    <div class="field"><label for="area">Neighborhood</label><select id="area"><option selected>Mueller</option><option>Hyde Park</option><option>Cherrywood</option><option>East Austin</option></select><span class="hint">Outside these four? Leave your address and we'll tell you when we reach you.</span></div>
+    <fieldset class="field"><legend>Days</legend>
+      <div class="chips">
+        <label class="chip"><input type="checkbox" checked><span>Mon</span></label>
+        <label class="chip"><input type="checkbox"><span>Tue</span></label>
+        <label class="chip"><input type="checkbox" checked><span>Wed</span></label>
+        <label class="chip"><input type="checkbox"><span>Thu</span></label>
+        <label class="chip"><input type="checkbox" checked><span>Fri</span></label>
+      </div>
+    </fieldset>
+    <fieldset class="field"><legend>Time of day</legend>
+      <div class="chips">
+        <label class="chip"><input type="radio" name="t"><span>Morning, 7 to 10</span></label>
+        <label class="chip"><input type="radio" name="t" checked><span>Midday, 11 to 2</span></label>
+        <label class="chip"><input type="radio" name="t"><span>Afternoon, 3 to 6</span></label>
+      </div>
+    </fieldset>
+    <fieldset class="field"><legend>Visit</legend>
+      <div class="chips">
+        <label class="chip"><input type="radio" name="v" checked><span>30-minute walk</span></label>
+        <label class="chip"><input type="radio" name="v"><span>60-minute walk</span></label>
+        <label class="chip"><input type="radio" name="v"><span>Drop-in visit</span></label>
+      </div>
+    </fieldset>
+    <div class="field-row">
+      <div class="field"><label for="name">Your name</label><input id="name" value="Jordan Ellis"></div>
+      <div class="field"><label for="phone">Mobile</label><input id="phone" value="(512) 555-0193"></div>
+    </div>
+    <div class="field"><label for="notes">Anything we should know?</label><textarea id="notes" rows="3">Pulls at the start, settles after a block. Scared of skateboards.</textarea></div>
+    <button class="btn btn-leash" type="submit" style="justify-self:start">Request my meet and greet</button>
+  </form>
+  <aside class="summary" aria-label="Your plan">
+    <h3>Your plan</h3>
+    <dl>
+      <dt>Walks a week</dt><dd>3</dd>
+      <dt>Visit</dt><dd>30-minute walk</dd>
+      <dt>When</dt><dd>Mon, Wed, Fri midday</dd>
+      <dt>Meet and greet</dt><dd>Free</dd>
+    </dl>
+    <div class="total"><span>Per week</span><b>$72</b></div>
+    <p class="note">Your walker messages you before the meet and greet so you know who is coming.</p>
+  </aside>
+</div></section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div><strong>Brightpaw</strong>Dog walking and drop-in visits in central and east Austin.<br>hello@brightpaw.example.com<br>(512) 555-0148</div>
+    <div><strong>Walks</strong><a href="pricing.html">Walks and prices</a><a href="book.html">Book a walk</a></div>
+    <div><strong>About</strong><a href="about.html">Our walkers</a><a href="about.html#promise">Our promise</a></div>
+    <div class="fine">Insured and bonded. Every walker is background checked and pet first aid certified.</div>
+  </div>
+</footer>
+</body>
+</html>
