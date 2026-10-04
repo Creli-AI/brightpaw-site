@@ -25,51 +25,54 @@
   <p class="lede">Tell us about your dog and when you want walks. We confirm within two hours on weekdays.</p>
 </div></section>
 <section class="band" style="padding-top:0"><div class="wrap book">
-  <form class="form" action="#" onsubmit="return false">
+  <form class="form" action="#" novalidate>
     <div class="field-row">
-      <div class="field"><label for="dog">Your dog's name</label><input id="dog" value="Biscuit"></div>
-      <div class="field"><label for="size">Size</label><select id="size"><option>Small, under 20 lb</option><option selected>Medium, 20 to 50 lb</option><option>Large, over 50 lb</option></select></div>
+      <div class="field"><label for="dog">Your dog's name</label><input id="dog" name="dog" value="Biscuit"><span class="error" data-error-for="dog" role="alert" hidden></span></div>
+      <div class="field"><label for="size">Size</label><select id="size" name="size"><option>Small, under 20 lb</option><option selected>Medium, 20 to 50 lb</option><option>Large, over 50 lb</option></select></div>
     </div>
-    <div class="field"><label for="area">Neighborhood</label><select id="area"><option selected>Mueller</option><option>Hyde Park</option><option>Cherrywood</option><option>East Austin</option></select><span class="hint">Outside these four? Leave your address and we'll tell you when we reach you.</span></div>
+    <div class="field"><label for="area">Neighborhood</label><select id="area" name="area"><option selected>Mueller</option><option>Hyde Park</option><option>Cherrywood</option><option>East Austin</option></select><span class="hint">Outside these four? Leave your address and we'll tell you when we reach you.</span></div>
     <fieldset class="field"><legend>Days</legend>
       <div class="chips">
-        <label class="chip"><input type="checkbox" checked><span>Mon</span></label>
-        <label class="chip"><input type="checkbox"><span>Tue</span></label>
-        <label class="chip"><input type="checkbox" checked><span>Wed</span></label>
-        <label class="chip"><input type="checkbox"><span>Thu</span></label>
-        <label class="chip"><input type="checkbox" checked><span>Fri</span></label>
+        <label class="chip"><input type="checkbox" name="days" value="Mon" checked><span>Mon</span></label>
+        <label class="chip"><input type="checkbox" name="days" value="Tue"><span>Tue</span></label>
+        <label class="chip"><input type="checkbox" name="days" value="Wed" checked><span>Wed</span></label>
+        <label class="chip"><input type="checkbox" name="days" value="Thu"><span>Thu</span></label>
+        <label class="chip"><input type="checkbox" name="days" value="Fri" checked><span>Fri</span></label>
       </div>
+      <span class="error" data-error-for="days" role="alert" hidden></span>
     </fieldset>
     <fieldset class="field"><legend>Time of day</legend>
       <div class="chips">
-        <label class="chip"><input type="radio" name="t"><span>Morning, 7 to 10</span></label>
-        <label class="chip"><input type="radio" name="t" checked><span>Midday, 11 to 2</span></label>
-        <label class="chip"><input type="radio" name="t"><span>Afternoon, 3 to 6</span></label>
+        <label class="chip"><input type="radio" name="time" value="morning"><span>Morning, 7 to 10</span></label>
+        <label class="chip"><input type="radio" name="time" value="midday" checked><span>Midday, 11 to 2</span></label>
+        <label class="chip"><input type="radio" name="time" value="afternoon"><span>Afternoon, 3 to 6</span></label>
       </div>
+      <span class="error" data-error-for="time" role="alert" hidden></span>
     </fieldset>
     <fieldset class="field"><legend>Visit</legend>
       <div class="chips">
-        <label class="chip"><input type="radio" name="v" checked><span>30-minute walk</span></label>
-        <label class="chip"><input type="radio" name="v"><span>60-minute walk</span></label>
-        <label class="chip"><input type="radio" name="v"><span>Drop-in visit</span></label>
+        <label class="chip"><input type="radio" name="visit" value="walk30" checked><span>30-minute walk</span></label>
+        <label class="chip"><input type="radio" name="visit" value="walk60"><span>60-minute walk</span></label>
+        <label class="chip"><input type="radio" name="visit" value="dropin"><span>Drop-in visit</span></label>
       </div>
     </fieldset>
     <div class="field-row">
-      <div class="field"><label for="name">Your name</label><input id="name" value="Jordan Ellis"></div>
-      <div class="field"><label for="phone">Mobile</label><input id="phone" value="(512) 555-0193"></div>
+      <div class="field"><label for="name">Your name</label><input id="name" name="name" value="Jordan Ellis"><span class="error" data-error-for="name" role="alert" hidden></span></div>
+      <div class="field"><label for="phone">Mobile</label><input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" value="(512) 555-0193"><span class="error" data-error-for="phone" role="alert" hidden></span></div>
     </div>
-    <div class="field"><label for="notes">Anything we should know?</label><textarea id="notes" rows="3">Pulls at the start, settles after a block. Scared of skateboards.</textarea></div>
+    <div class="field"><label for="notes">Anything we should know?</label><textarea id="notes" name="notes" rows="3">Pulls at the start, settles after a block. Scared of skateboards.</textarea></div>
     <button class="btn btn-leash" type="submit" style="justify-self:start">Request my meet and greet</button>
+    <p class="confirm" role="status" tabindex="-1" hidden></p>
   </form>
   <aside class="summary" aria-label="Your plan">
     <h3>Your plan</h3>
     <dl>
-      <dt>Walks a week</dt><dd>3</dd>
-      <dt>Visit</dt><dd>30-minute walk</dd>
-      <dt>When</dt><dd>Mon, Wed, Fri midday</dd>
+      <dt>Walks a week</dt><dd data-summary="walks">3</dd>
+      <dt>Visit</dt><dd data-summary="visit">30-minute walk</dd>
+      <dt>When</dt><dd data-summary="when">Mon, Wed, Fri midday</dd>
       <dt>Meet and greet</dt><dd>Free</dd>
     </dl>
-    <div class="total"><span>Per week</span><b>$72</b></div>
+    <div class="total"><span>Per week</span><b data-summary="perWeek">$72</b></div>
     <p class="note">Your walker messages you before the meet and greet so you know who is coming.</p>
   </aside>
 </div></section>
@@ -83,5 +86,6 @@
     <div class="fine">Insured and bonded. Every walker is background checked and pet first aid certified.</div>
   </div>
 </footer>
+<script type="module" src="booking.js"></script>
 </body>
 </html>
