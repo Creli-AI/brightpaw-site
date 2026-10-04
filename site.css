@@ -200,3 +200,9 @@ footer .fine { grid-column: 1 / -1; border-top: 1px solid #3b4680; padding-top: 
   footer .wrap { grid-template-columns: 1fr; }
 }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+
+/* Booking form: a line under a field that needs fixing, and the confirmation */
+.error { color: #a3261b; font-size: 15px; font-weight: 600; }
+.field input[aria-invalid="true"] { border-color: #a3261b; }
+.confirm { margin: 0; background: var(--oak-pale); color: var(--oak); border-radius: var(--radius-sm); padding: 16px 18px; font-weight: 600; }
+.confirm:focus { outline: 3px solid var(--bonnet); outline-offset: 3px; }
