@@ -24,3 +24,11 @@ test('a complete request is confirmed', () => {
   assert.match(r.message, /Thanks, Jordan\. We will text \(512\) 555-0193/)
   assert.match(r.message, /\$72 a week/)
 })
+
+test('days and time stay chosen after a field error', () => {
+  const r = submit({ ...biscuit, days: ['Tue', 'Thu'], time: 'afternoon', phone: '555 01' })
+  assert.equal(r.ok, false)
+  assert.ok(r.errors.phone)
+  assert.deepEqual(r.state.days, ['Tue', 'Thu'])
+  assert.equal(r.state.time, 'afternoon')
+})

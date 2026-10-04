@@ -47,8 +47,8 @@ export function validate(state) {
 /** Send the request: the errors to show, or the confirmation. */
 export function submit(state) {
   const errors = validate(state)
-  // Start the choice over so the person picks again with the error in view.
-  if (Object.keys(errors).length) return { ok: false, errors, state: { ...state, days: [], time: null } }
+  // Every choice stays as it was: only the fields with an error need touching.
+  if (Object.keys(errors).length) return { ok: false, errors, state }
   const s = summarize(state)
   const first = String(state.name).trim().split(/\s+/)[0]
   return {
