@@ -206,3 +206,6 @@ footer .fine { grid-column: 1 / -1; border-top: 1px solid #3b4680; padding-top: 
 .field input[aria-invalid="true"] { border-color: #a3261b; }
 .confirm { margin: 0; background: var(--oak-pale); color: var(--oak); border-radius: var(--radius-sm); padding: 16px 18px; font-weight: 600; }
 .confirm:focus { outline: 3px solid var(--bonnet); outline-offset: 3px; }
+
+/* Pricing: the weekday plan's "a week" beside its price */
+.pack .amt .per { font-size: 22px; font-weight: 600; }
