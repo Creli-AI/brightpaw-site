@@ -10,6 +10,8 @@ export const VISITS = {
   walk30: { name: '30-minute walk', price: 24 },
   walk60: { name: '60-minute walk', price: 36 },
   dropin: { name: 'Drop-in visit', price: 20 },
+  // Five 30-minute walks a week, Monday to Friday, with the same walker.
+  plan: { name: 'Weekday plan', price: 105, weekly: true },
 }
 
 export const TIMES = { morning: 'morning', midday: 'midday', afternoon: 'afternoon' }
@@ -23,12 +25,22 @@ export function checkPhone(raw) {
   return { ok: true, value: `(${ten.slice(0, 3)}) ${ten.slice(3, 6)}-${ten.slice(6)}` }
 }
 
+/**
+ * What a change to the form does to the rest of it: picking the weekday plan checks all five days, and unchecking a day
+ * while on the plan moves back to single 30-minute walks.
+ */
+export function change(state, name, value, checked) {
+  if (name === 'visit' && value === 'plan') return { ...state, visit: 'plan', days: [...DAYS] }
+  if (name === 'days' && !checked && state.visit === 'plan') return { ...state, visit: 'walk30' }
+  return state
+}
+
 /** The plan box beside the form: walks a week, the visit, when, and the price per week. */
 export function summarize(state) {
   const days = DAYS.filter((d) => state.days.includes(d))
   const visit = VISITS[state.visit] ?? VISITS.walk30
   const when = days.length ? `${days.join(', ')}${state.time ? ` ${TIMES[state.time]}` : ''}` : 'Pick at least one day'
-  const perWeek = days.length * visit.price
+  const perWeek = visit.weekly ? visit.price : days.length * visit.price
   return { walks: days.length, visit: visit.name, when, perWeek }
 }
 
@@ -105,7 +117,11 @@ function init() {
   const box = document.querySelector('.summary')
   const done = form.querySelector('.confirm')
   const update = () => render(box, read(form))
-  form.addEventListener('change', update)
+  form.addEventListener('change', (e) => {
+    const t = e.target
+    if (t && t.name) write(form, change(read(form), t.name, t.value, t.checked))
+    update()
+  })
   form.addEventListener('input', update)
   form.addEventListener('submit', (e) => {
     e.preventDefault()
